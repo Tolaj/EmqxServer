@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  broker:
+    user: root
+    container_name: foo_emqx
+    hostname: foo_emqx
+    image: emqx/emqx:v4.1-beta.1
+    restart: always
+    environment:
+      EMQX_NAME: foo_emqx
+      EMQX_HOST: 127.0.0.1
+    ports:
+      - 1883:1883
+      - 8083:8083
+      - 18083:18083
+    volumes:
+      - vol-emqx-root:/root
+      - vol-emqx-data:/opt/emqx/data
+      - vol-emqx-etc:/opt/emqx/etc
+      - vol-emqx-log:/opt/emqx/log
+
+  server:
+    build: ./server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/app
+    environment:
+      NODE_ENV: development
+    depends_on:
+      - broker
+volumes:
+  vol-emqx-root:
+    name: foo-emqx-root
+  vol-emqx-data:
+    name: foo-emqx-data
+  vol-emqx-etc:
+    name: foo-emqx-etc
+  vol-emqx-log:
+    name: foo-emqx-log
+
+

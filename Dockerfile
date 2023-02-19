@@ -8,8 +8,7 @@ USER root
 # Set container name and hostname
 ARG CONTAINER_NAME=foo_emqx
 ARG HOST_NAME=foo_emqx
-RUN echo "${HOST_NAME}" > /etc/hostname && \
-    sed -i "s/127.0.0.1 localhost/127.0.0.1 localhost ${HOST_NAME}/g" /etc/hosts
+
 
 # Set restart policy
 STOPSIGNAL SIGQUIT

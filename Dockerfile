@@ -6,8 +6,6 @@ RUN chown -R emqx:emqx /opt/emqx
 ENV EMQX_NAME foo_emqx
 ENV EMQX_HOST 127.0.0.1
 
-# Copy configuration files
-COPY emqx.conf /opt/emqx/etc/
 
 # Expose ports
 EXPOSE 1883 8083 18083

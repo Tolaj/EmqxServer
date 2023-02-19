@@ -20,11 +20,5 @@ ENV EMQX_NAME=${EMQX_NAME} \
 # Expose ports
 EXPOSE 1883 8083 18083
 
-# Set up volumes
-VOLUME /root
-VOLUME /opt/emqx/data
-VOLUME /opt/emqx/etc
-VOLUME /opt/emqx/log
-
 CMD ["emqx", "start"]
 

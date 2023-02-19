@@ -10,10 +10,8 @@ ARG CONTAINER_NAME=foo_emqx
 ARG HOST_NAME=foo_emqx
 
 
-# Set restart policy
-STOPSIGNAL SIGQUIT
-ENTRYPOINT ["tini", "--"]
-CMD ["emqx", "start"]
+
+
 
 # Set environment variables
 ENV EMQX_NAME=${EMQX_NAME} \
@@ -28,4 +26,5 @@ VOLUME /opt/emqx/data
 VOLUME /opt/emqx/etc
 VOLUME /opt/emqx/log
 
+CMD ["emqx", "start"]
 

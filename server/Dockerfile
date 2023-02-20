@@ -2,11 +2,11 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-COPY package.json /worker/
+COPY package.json /app/
 
 RUN npm install 
 
-COPY . /worker/
+COPY . /app/
 
 # COPY . .
 

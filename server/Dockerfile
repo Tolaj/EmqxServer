@@ -2,11 +2,13 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json /worker/
 
 RUN npm install 
 
-COPY . .
+COPY . /worker/
+
+# COPY . .
 
 EXPOSE 8080
 

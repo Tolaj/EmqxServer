@@ -24,8 +24,8 @@ services:
     build: ./server
     ports:
       - "8080:8080"
-    volumes:
-      - ./server:/app
+    # volumes:
+    #   - ./server:/app
     environment:
       NODE_ENV: development
     depends_on:

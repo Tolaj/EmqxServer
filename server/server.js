@@ -1,7 +1,7 @@
 const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const port1 = process.env.PORT || 8080;
+const port1 = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
@@ -38,7 +38,7 @@ const client = mqtt.connect(connectUrl, {
 })
 
 console.log('started')
-const topic = "/nodejs/mqtt"
+const topic = "/testtopic/Temperature"
 client.on('connect', () => {
   console.log('Connected')
   client.subscribe([topic], () => {
